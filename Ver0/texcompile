@@ -1,0 +1,30 @@
+#!/bin/bash
+# --*-coding:utf-8-unix-*--
+# ***************************************************
+# texファイルのコンパイルを一度に行う.
+# ※ 事前にIPAexフォント のインスールが必要
+# ***************************************************
+
+# *******************************
+# 設定
+# *******************************
+ENCODE="utf8"
+#ENCODE="sjis"
+#ENCODE="euc"
+
+# *******************************
+# コンパイル
+# *******************************
+filename=$1
+
+platex -kanji="${ENCODE}" "${filename}"
+
+platex -kanji="${ENCODE}" "${filename}"
+
+platex -kanji="${ENCODE}" "${filename}"
+
+dvipdfmx "${filename}"
+
+open "${filename}".pdf
+
+rm *log *aux *dvi *blg *~ *.BAK *.lof *lot *.toc *.xbb *.bbl

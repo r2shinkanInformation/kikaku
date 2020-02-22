@@ -1,0 +1,31 @@
+%% 表紙用のファイル
+
+\ProvidesPackage{texilikecover}[2007/04/05 v 0.1: Texi-like cover for LaTeX2e.]
+
+%\newcommand{\subtitle}[1]{\def\@subtitle{#1}}
+\newcommand{\group}[1]{\def\@group{#1}}
+\newcommand{\version}[1]{\def\@version{Ver#1}}
+
+\renewcommand{\and}{\\}
+
+\renewcommand{\maketitle}{
+  \thispagestyle{empty}
+  \mbox{}
+  \vfill
+  \noindent{\huge\bf \@title}\\
+  \rule{\textwidth}{3pt}
+  \begin{flushright}
+    \vskip -3mm
+    \@group\\
+    % \@subtitle\\
+    作成 : \@date\\
+    \@version
+  \end{flushright}
+  \vfill\vfill
+  \begin{flushleft}
+    \bf\Large
+    \@author
+  \end{flushleft}
+  \vskip -5mm\rule{\textwidth}{2pt}
+  \cleardoublepage
+}
